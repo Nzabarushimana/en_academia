@@ -1,0 +1,954 @@
+:root {
+  --bg: #f8f8f6;
+  --paper: #ffffff;
+  --text: #1f2933;
+  --muted: #5f6c72;
+  --border: #d9dedc;
+  --accent: #1f6f68;
+  --accent-dark: #174f4a;
+  --accent-soft: #e8f1ef;
+  --shadow: 0 18px 42px rgba(31, 41, 51, 0.08);
+  --max: 1200px;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: Georgia, "Times New Roman", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+.container {
+  width: min(var(--max), calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.site-header {
+  background: rgba(248, 248, 246, 0.96);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.nav {
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.site-name {
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.site-name:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.nav-links a {
+  color: var(--muted);
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom-color: var(--accent);
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 86px 0 78px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-text {
+  max-width: 1200px;
+  padding-top: 82px;
+}
+
+.profile-panel {
+  position: absolute;
+  top: 34px;
+  left: 0;
+  width: 104px;
+}
+
+.portrait {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--accent-soft);
+  border: 3px solid var(--paper);
+  box-shadow: 0 4px 14px rgba(31, 41, 51, 0.16);
+  display: grid;
+  place-items: center;
+}
+
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.portrait span {
+  width: 100%;
+  height: 100%;
+  display: none;
+  place-items: center;
+  color: var(--accent);
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.page-hero {
+	max-width: 1200px;
+  padding: 48px 0 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.kicker,
+.eyebrow {
+  margin: 0 0 16px;
+  color: var(--accent);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.page-hero-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.page-hero-inner {
+  max-width: 1200px;
+}
+/* ABOUT PAGE IMAGE
+   Small professional portrait beside the About text.
+   Adjust --about-photo-size to make it larger or smaller.
+*/
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 36px;
+  align-items: start;
+  max-width: 1200px;
+	margin:0;
+}
+
+.about-photo {
+  width: 150px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--accent-soft);
+  border: 3px solid var(--paper);
+  box-shadow: 0 8px 22px rgba(31, 41, 51, 0.12);
+}
+
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+	margin:0;
+}
+
+/* About text */
+.about-copy {
+  max-width: 1080px;
+	margin: 0;
+}
+
+.about-copy p {
+  margin: 0 0 18px;
+  color: var(--text);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.about-copy p:last-child {
+  margin-bottom: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  color: var(--text);
+}
+
+h1 {
+  max-width: 1100px;
+  margin-bottom: 18px;
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  margin-bottom: 14px;
+  font-family: var(--font-heading);
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  margin-bottom: 8px;
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+.position {
+  margin: 0 0 26px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.summary,
+.page-summary {
+  max-width: 1100px;
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 650;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.actions a:first-child {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+.actions a:hover {
+  text-decoration: none;
+  border-color: var(--accent);
+}
+
+.actions a:first-child:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+.section,
+.page-section {
+  padding: 36px 0;
+}
+
+.section + .section,
+.page-section + .page-section {
+  border-top: 1px solid var(--border);
+}
+
+.section-header {
+  max-width: 1000px;
+  margin-bottom: 24px;
+}
+
+.section-header p:not(.eyebrow) {
+  margin: 0;
+  color: var(--muted);
+}
+
+.lead-copy p {
+  max-width: 740px;
+  margin: 0 0 18px;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: 0.85fr 0.95fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.info-card,
+.focus-grid div {
+  padding: 22px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.info-card p,
+.focus-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+/* EDUCATION / TRAINING LIST
+   Controls the Education and Training block.
+
+   Layout:
+   - Left column = degree, position, program, or institution
+   - Right column = year/date, right-aligned
+   - Subheaders use the same grid, padding, and border rhythm as regular rows
+*/
+
+.compact-list {
+  border-top: none;
+}
+
+.compact-list h2 {
+  margin: 0 0 12px;
+}
+/* Group titles such as "Postdoctoral training" and "Predoctoral training" */
+
+.training-group-title,
+.compact-list h3 {
+  margin: 6px 0 0;
+  padding: 8px 0 6px;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--text);
+}
+
+/* Optional: add more space before Predoctoral training */
+
+.training-group-title,
+.compact-list h3 {
+  margin: 6px 0 0;
+  padding: 8px 0 6px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.compact-list h3.predoctoral-title {
+  margin-top: 18px;
+  font-size: 16px;
+}
+
+/* Shared row structure for both data rows and subheader rows */
+
+.list-row,
+.training-subheader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 140px;
+  gap: 24px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+
+/* Main row text */
+.list-row p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Main row year/date */
+.list-row span {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Subheader labels such as "Degree, Program, Institution" and "Graduation year" */
+.training-subheader span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  /*text-transform: uppercase;*/
+  white-space: nowrap;
+}
+
+/* Left subheader label */
+.training-subheader span:first-child {
+  text-align: left;
+}
+
+/* Right subheader label */
+.training-subheader span:last-child {
+  text-align: right;
+}
+
+/* Optional standalone top divider.
+   Use only if you need a simple horizontal line somewhere.
+*/
+.list-l {
+  padding: 14px 0 0;
+  border-top: 1px solid var(--border);
+}
+/*
+Education section ends
+*/
+
+.research-map {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "methods center data"
+    "biology center impact";
+  gap: 22px;
+  padding: 28px;
+  background:
+    radial-gradient(circle at center, rgba(31, 111, 104, 0.13), transparent 34%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(232, 241, 239, 0.52));
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+
+.research-map::before,
+.research-map::after {
+  content: "";
+  position: absolute;
+  background: rgba(31, 111, 104, 0.22);
+  z-index: 0;
+}
+
+.research-map::before {
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+}
+
+.research-map::after {
+  top: 12%;
+  bottom: 12%;
+  left: 50%;
+  width: 1px;
+}
+
+.map-card,
+.map-center {
+  position: relative;
+  z-index: 1;
+}
+
+.map-card {
+  min-height: 190px;
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(217, 222, 220, 0.92);
+  border-radius: 16px;
+}
+
+.map-card h3 {
+  margin-bottom: 10px;
+}
+
+.map-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.map-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.map-methods { grid-area: methods; }
+.map-data { grid-area: data; }
+.map-biology { grid-area: biology; }
+.map-impact { grid-area: impact; }
+
+.map-center {
+  grid-area: center;
+  display: grid;
+  place-items: center;
+  min-height: 280px;
+}
+
+.map-center > div {
+  width: min(100%, 250px);
+  min-height: 250px;
+  padding: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  text-align: center;
+  box-shadow: 0 20px 42px rgba(31, 111, 104, 0.24);
+}
+
+.map-center span {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.88;
+}
+
+.map-center strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.research-page .page-hero {
+  padding-bottom: 12px;
+  border-bottom: none;
+}
+
+.research-page .page-section {
+  padding-top: 24px;
+}
+
+.research-list {
+  border-top: 1px solid var(--border);
+}
+
+.research-list article {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 28px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.research-list article > span {
+  color: var(--accent);
+  font-family: var(--font-heading);
+  font-size: 22px;
+}
+
+.research-list p {
+  max-width: 1080px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.publication-list {
+  border-top: 1px solid var(--border);
+}
+
+.publication-list article {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.publication-list p {
+  max-width: 1080px;
+  margin: 0;
+  color: var(--text);
+  font-size: 16px;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 68px;
+}
+
+.contact-layout p {
+  color: var(--muted);
+}
+
+.contact-details {
+  padding: 24px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.contact-details p {
+  margin: 0 0 24px;
+}
+
+.contact-details p:last-child {
+  margin-bottom: 0;
+}
+
+.contact-details strong {
+  color: var(--text);
+}
+
+.site-footer {
+  padding: 28px 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+@media (max-width: 980px) {
+  .nav {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 18px 0;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .research-map {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "center center"
+      "methods data"
+      "biology impact";
+  }
+
+  .research-map::before,
+  .research-map::after {
+    display: none;
+  }
+
+  .map-center {
+    min-height: auto;
+  }
+
+  .map-center > div {
+    width: 100%;
+    min-height: auto;
+    border-radius: 18px;
+  }
+}
+/* PUBLICATION COLLAPSIBLE SECTIONS
+   Controls expandable/collapsible publication categories.
+*/
+
+.pub-section {
+  margin-bottom: 22px;
+  border-top:  1px solid var(--border);
+}
+
+.pub-section summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 8px 0 12px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.pub-section summary::-webkit-details-marker {
+  display: none;
+}
+
+.pub-section summary span {
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.pub-section summary small {
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.pub-section summary::after {
+  content: "+";
+  color: var(--accent);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.pub-section[open] summary::after {
+  content: "–";
+}
+
+.pub-section summary:hover span {
+  color: var(--accent);
+}
+
+.pub-section .publication-list {
+   border-top: none;
+	  padding: 8px 0;
+}
+
+.pub-section[open] > summary {
+  margin-bottom: 0;
+}
+@media (max-width: 860px) {
+  .two-column,
+  .contact-layout,
+  .focus-grid,
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .hero {
+    padding: 58px 0 56px;
+  }
+
+  .profile-panel {
+    top: 28px;
+  }
+
+  .hero-text {
+    padding-top: 88px;
+  }
+
+  .page-hero {
+    padding: 54px 0 34px;
+  }
+
+  .page-section,
+  .section {
+    padding: 50px 0;
+  }
+
+  .list-row,
+  .research-list article {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 620px) {
+  .container {
+    width: min(100% - 32px, var(--max));
+  }
+
+  .summary,
+  .page-summary {
+    font-size: 16px;
+  }
+
+  .portrait {
+    width: 92px;
+    height: 92px;
+  }
+
+  .profile-panel {
+    width: 92px;
+  }
+
+  .research-map {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "center"
+      "methods"
+      "data"
+      "biology"
+      "impact";
+    padding: 18px;
+  }
+
+  .map-card {
+    min-height: auto;
+  }
+}
+/* SELECTED PUBLICATIONS
+   Highlighted publications shown before the full collapsible publication record.
+*/
+
+.selected-publications {
+  margin-bottom: 24px;
+   border-top: 1px solid var(--border);
+  padding-top: 18px;
+}
+
+.selected-publication-list {
+ border-top: none;
+	border-bottom: none;
+}
+
+.selected-publication-list article {
+  padding: 8px 0;
+ border-top: none;
+ border-bottom: none;
+}
+.pub-section:last-child {
+  border-bottom: none;
+}
+
+.pub-section .publication-list,
+.selected-publication-list,
+.publication-list article,
+.selected-publication-list article {
+  border-top: none;
+  border-bottom: none;
+}
+
+/* Publications ends
+*/
+@media (max-width: 860px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .about-photo {
+    width: 140px;
+  }
+}
+
+/*TEACHING*/
+
+.teaching-section .two-column {
+  grid-template-columns: 0.95fr 1.15fr;
+  gap: 36px;
+}
+
+.teaching-section .teaching-list {
+  max-width: 760px;
+}
+
+.teaching-section .list-row {
+  display: block;
+  padding: 0 0 18px;
+}
+
+.teaching-section .list-row span {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 700;
+  color: var(--accent);
+  text-align: left;
+}
+
+.teaching-section .list-row p {
+  margin: 0;
+  max-width: 100%;
+}
+
+.teaching-section .list-row:last-child {
+  padding-bottom: 0;
+}
+
+/*TEACHING ends*/
+
+/*AWARDS*/
+.awards-section .list-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 20px;
+  align-items: start;
+  padding: 0 0 16px;
+}
+
+.awards-section .list-row span {
+  text-align: left;
+  justify-self: start;
+  color: var(--accent);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.awards-section .list-row p {
+  margin: 0;
+  max-width: 100%;
+}
+
+.awards-section .list-row:last-child {
+  padding-bottom: 0;
+}
